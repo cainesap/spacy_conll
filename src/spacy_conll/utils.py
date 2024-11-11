@@ -75,7 +75,8 @@ def init_parser(
     if parser == "spacy":
         exclude = ["senter", "sentencizer"] if disable_sbd or is_tokenized else []
         exclude = exclude + exclude_spacy_components if exclude_spacy_components is not None else exclude
-        nlp = spacy.load(model_or_lang, exclude=exclude, **parser_opts)
+        model_path = path + "/" + model_or_lang
+        nlp = spacy.load(model_path, exclude=exclude, **parser_opts)
         if is_tokenized:
             nlp.tokenizer = SpacyPretokenizedTokenizer(nlp.vocab)
         if disable_sbd or is_tokenized:
