@@ -31,6 +31,7 @@ except ImportError:
 def init_parser(
     model_or_lang: str,
     parser: str,
+    path: str,
     *,
     is_tokenized: bool = False,
     disable_sbd: bool = False,
